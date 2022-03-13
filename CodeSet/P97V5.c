@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main()
+{
+	long long int n,m,i,j,a[1001],hold;
+	scanf("%lld%lld",&n,&m);
+	for(i=0;i<n;i++)
+	scanf("%lld",&a[i]);
+	for(i=0;i<n-1;i++)
+	for(j=0;j<n-1-i;j++)
+	if(a[j]>=a[j+1])
+	{
+		if(a[j]+a[j+1]>=2*m)
+		{
+			hold=a[j];
+			a[j]=a[j+1];			
+			a[j+1]=hold;
+		}
+	}
+	else
+	{
+		if(a[j]+a[j+1]<2*m)
+		{
+			hold=a[j];
+			a[j]=a[j+1];
+			a[j+1]=hold; 
+		}
+	}
+	for(i=0;i<n;i++)
+	printf("%lld\n",a[i]);
+}
